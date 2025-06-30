@@ -38,6 +38,13 @@ namespace RabbitAdoption.Api.Controllers
             return Ok(rabbit);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllRabbits()
+        {
+            var rabbits = await _mediator.Send(new GetAllRabbitsQuery());
+            return Ok(rabbits);
+        }
+
         [HttpGet("adopted-per-day")]
         public async Task<IActionResult> GetRabbitsAdoptedPerDay([FromQuery] int days = 7)
         {

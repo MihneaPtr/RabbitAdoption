@@ -71,8 +71,7 @@ namespace RabbitAdoption.Worker
                             adoptionRequest.SetStatus(AdoptionStatus.Rejected);
                             dbContext.SaveChanges();
                             transaction?.Commit();
-                            Console.WriteLine($"Rejected adoption {adoptionRequest.Id}");
-                            _logger.LogError("Rejected adoption {AdoptionId}", adoptionRequest.Id);
+                            _logger.LogWarning("Rejected adoption {AdoptionId}", adoptionRequest.Id);
                         }
                         _channel.BasicAck(ea.DeliveryTag, false);
                         return;

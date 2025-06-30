@@ -87,5 +87,10 @@ namespace RabbitAdoption.Infrastructure
             }
             return result;
         }
+
+        public async Task<List<Rabbit>> GetAllAsync(CancellationToken cancellationToken = default)
+        {
+            return await _dbContext.Rabbits.AsNoTracking().ToListAsync(cancellationToken);
+        }
     }
 }

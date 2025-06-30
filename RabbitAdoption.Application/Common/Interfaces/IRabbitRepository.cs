@@ -14,6 +14,7 @@ namespace RabbitAdoption.Application.Common.Interfaces
         Task<Rabbit?> GetBestMatchAsync(string? size, string? color, string? ageRange, CancellationToken cancellationToken = default);
         Task<List<RabbitsAdoptedPerDayDto>> GetRabbitsAdoptedPerDayAsync(int days, CancellationToken cancellationToken = default);
         Task<int> CountAsync(Expression<Func<Rabbit, bool>> predicate, CancellationToken cancellationToken = default);
+        Task<List<Rabbit>> GetAllAsync(CancellationToken cancellationToken = default);
     }
 
     public class RabbitsAdoptedPerDayDto
