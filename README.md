@@ -42,6 +42,8 @@ Data Flow:
    - API (http://localhost:5000, Swagger UI enabled)
    - Worker
 
+**Atention: Sometimes the worker might start before RabbitMq container starts so it will automatically stop, you just need to start the Worker container again (future improvements to be retry to connect to RabbitMq for a period, or gracefully log the error and not break)**
+
 3. Database:
    - The SQLite database is stored in the Database folder at the solution root and is shared between API and Worker.
 
